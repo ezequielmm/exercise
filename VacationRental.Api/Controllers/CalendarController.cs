@@ -24,9 +24,9 @@ namespace VacationRental.Api.Controllers
         }
 
         [HttpGet]
-        public CalendarViewModel Get(int rentalId, DateTime start, int nights)
+        public CalendarViewDTO Get(int rentalId, DateTime start, int nights)
         {
-            var result = new CalendarViewModel
+            var result = new CalendarViewDTO
             {
                 RentalId = rentalId,
                 Dates = new List<CalendarDateViewDTO>()

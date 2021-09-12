@@ -2,7 +2,7 @@
 
 namespace VacationRental.Api.Domain.Calendar
 {
-    public class CalendarViewModel
+    public class CalendarViewDTO
     {
         public int RentalId { get; set; }
         public List<CalendarDateViewDTO> Dates { get; set; }

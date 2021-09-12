@@ -67,7 +67,7 @@ namespace VacationRental.Api.Tests
             {
                 Assert.True(getCalendarResponse.IsSuccessStatusCode);
 
-                var getCalendarResult = await getCalendarResponse.Content.ReadAsAsync<CalendarViewModel>();
+                var getCalendarResult = await getCalendarResponse.Content.ReadAsAsync<CalendarViewDTO>();
 
                 Assert.Equal(postRentalResult.Id, getCalendarResult.RentalId);
                 Assert.Equal(5, getCalendarResult.Dates.Count);
