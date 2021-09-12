@@ -1,0 +1,7 @@
+2021-09-12 00:06:47.847 -03:00 [Information] User profile is available. Using '"C:\Users\Aegis\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-12 00:06:47.992 -03:00 [Information] Web api is starting...
+2021-09-12 00:06:48.670 -03:00 [Information] Web Api has started successfully
+2021-09-12 00:06:49.783 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/swagger/index.html  
+2021-09-12 00:06:50.265 -03:00 [Information] Request finished in 486.0543ms 200 text/html
+2021-09-12 00:06:50.819 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/swagger/v1/swagger.json  
+2021-09-12 00:06:50.950 -03:00 [Information] Request finished in 131.018ms 200 application/json;charset=utf-8

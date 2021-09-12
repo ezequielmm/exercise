@@ -1,4 +1,4 @@
-﻿namespace VacationRental.Api.Models
+﻿namespace VacationRental.Api.Domain.Resources
 {
     public class ResourceIdViewModel
     {

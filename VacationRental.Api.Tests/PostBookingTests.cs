@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using VacationRental.Api.Models;
+using VacationRental.Api.Domain.Booking;
+using VacationRental.Api.Domain.Resources;
+using VacationRental.Api.Domain.Rental;
 using Xunit;
 
 namespace VacationRental.Api.Tests
@@ -20,9 +21,10 @@ namespace VacationRental.Api.Tests
         [Fact]
         public async Task GivenCompleteRequest_WhenPostBooking_ThenAGetReturnsTheCreatedBooking()
         {
-            var postRentalRequest = new RentalBindingModel
+            var postRentalRequest = new RentalBindingDTO
             {
-                Units = 4
+                Units = 4,
+                PreparationTimeInDays = 5
             };
 
             ResourceIdViewModel postRentalResult;
@@ -32,7 +34,7 @@ namespace VacationRental.Api.Tests
                 postRentalResult = await postRentalResponse.Content.ReadAsAsync<ResourceIdViewModel>();
             }
 
-            var postBookingRequest = new BookingBindingModel
+            var postBookingRequest = new BookingBindingDTO
             {
                  RentalId = postRentalResult.Id,
                  Nights = 3,
@@ -50,7 +52,7 @@ namespace VacationRental.Api.Tests
             {
                 Assert.True(getBookingResponse.IsSuccessStatusCode);
 
-                var getBookingResult = await getBookingResponse.Content.ReadAsAsync<BookingViewModel>();
+                var getBookingResult = await getBookingResponse.Content.ReadAsAsync<BookingViewDTO>();
                 Assert.Equal(postBookingRequest.RentalId, getBookingResult.RentalId);
                 Assert.Equal(postBookingRequest.Nights, getBookingResult.Nights);
                 Assert.Equal(postBookingRequest.Start, getBookingResult.Start);
@@ -60,9 +62,10 @@ namespace VacationRental.Api.Tests
         [Fact]
         public async Task GivenCompleteRequest_WhenPostBooking_ThenAPostReturnsErrorWhenThereIsOverbooking()
         {
-            var postRentalRequest = new RentalBindingModel
+            var postRentalRequest = new RentalBindingDTO
             {
-                Units = 1
+                Units = 1,
+                PreparationTimeInDays = 2
             };
 
             ResourceIdViewModel postRentalResult;
@@ -72,7 +75,7 @@ namespace VacationRental.Api.Tests
                 postRentalResult = await postRentalResponse.Content.ReadAsAsync<ResourceIdViewModel>();
             }
 
-            var postBooking1Request = new BookingBindingModel
+            var postBooking1Request = new BookingBindingDTO
             {
                 RentalId = postRentalResult.Id,
                 Nights = 3,
@@ -84,19 +87,14 @@ namespace VacationRental.Api.Tests
                 Assert.True(postBooking1Response.IsSuccessStatusCode);
             }
 
-            var postBooking2Request = new BookingBindingModel
+            var postBooking2Request = new BookingBindingDTO
             {
                 RentalId = postRentalResult.Id,
                 Nights = 1,
                 Start = new DateTime(2002, 01, 02)
             };
 
-            await Assert.ThrowsAsync<ApplicationException>(async () =>
-            {
-                using (var postBooking2Response = await _client.PostAsJsonAsync($"/api/v1/bookings", postBooking2Request))
-                {
-                }
-            });
+            var assert = Assert.ThrowsAsync<ArgumentException>(() => _client.PostAsJsonAsync($"/api/v1/bookings", postBooking2Request));
         }
     }
 }

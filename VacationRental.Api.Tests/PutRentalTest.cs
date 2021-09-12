@@ -1,4 +1,7 @@
-﻿using System.Net.Http;
+﻿using System;
+using System.Collections.Generic;
+using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using VacationRental.Api.Domain.Resources;
 using VacationRental.Api.Domain.Rental;
@@ -7,22 +10,22 @@ using Xunit;
 namespace VacationRental.Api.Tests
 {
     [Collection("Integration")]
-    public class PostRentalTests
+    public class PutRentalTest
     {
         private readonly HttpClient _client;
 
-        public PostRentalTests(IntegrationFixture fixture)
+        public PutRentalTest(IntegrationFixture fixture)
         {
             _client = fixture.Client;
         }
 
         [Fact]
-        public async Task GivenCompleteRequest_WhenPostRental_ThenAGetReturnsTheCreatedRental()
+        public async Task GivenCompleteRequest_WhenPutRental_ThenAGetReturnsTheModifiedRental()
         {
             var request = new RentalBindingDTO
             {
                 Units = 25,
-                PreparationTimeInDays = 3
+                PreparationTimeInDays = 6
             };
 
             ResourceIdViewModel postResult;
@@ -32,7 +35,14 @@ namespace VacationRental.Api.Tests
                 postResult = await postResponse.Content.ReadAsAsync<ResourceIdViewModel>();
             }
 
-            using (var getResponse = await _client.GetAsync($"/api/v1/rentals/{postResult.Id}"))
+            ResourceIdViewModel putResult;
+            using (var putResponse = await _client.PutAsJsonAsync($"/api/v1/rentals/{postResult.Id}", request))
+            {
+                Assert.True(putResponse.IsSuccessStatusCode);
+                putResult = await putResponse.Content.ReadAsAsync<ResourceIdViewModel>();
+            }
+
+            using (var getResponse = await _client.GetAsync($"/api/v1/rentals/{putResult.Id}"))
             {
                 Assert.True(getResponse.IsSuccessStatusCode);
 
