@@ -2,7 +2,7 @@
 
 namespace VacationRental.Api.Domain.Booking
 {
-    public class BookingBindingModel
+    public class BookingBindingDTO
     {
         public int RentalId { get; set; }
 

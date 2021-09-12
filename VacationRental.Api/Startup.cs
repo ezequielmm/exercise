@@ -30,7 +30,7 @@ namespace VacationRental.Api
             services.AddSwaggerGen(opts => opts.SwaggerDoc("v1", new Info { Title = "Vacation rental information", Version = "v1" }));
 
             services.AddSingleton<IDictionary<int, RentalViewDTO>>(new Dictionary<int, RentalViewDTO>());
-            services.AddSingleton<IDictionary<int, BookingViewModel>>(new Dictionary<int, BookingViewModel>());
+            services.AddSingleton<IDictionary<int, BookingViewDTO>>(new Dictionary<int, BookingViewDTO>());
             services.AddSingleton(Log.Logger);
         }
 

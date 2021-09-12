@@ -13,11 +13,11 @@ namespace VacationRental.Api.Controllers
     public class CalendarController : ControllerBase
     {
         private readonly IDictionary<int, RentalViewDTO> _rentals;
-        private readonly IDictionary<int, BookingViewModel> _bookings;
+        private readonly IDictionary<int, BookingViewDTO> _bookings;
 
         public CalendarController(
             IDictionary<int, RentalViewDTO> rentals,
-            IDictionary<int, BookingViewModel> bookings)
+            IDictionary<int, BookingViewDTO> bookings)
         {
             _rentals = rentals;
             _bookings = bookings;

@@ -1,6 +1,6 @@
 ﻿using System.Net.Http;
 using System.Threading.Tasks;
-using VacationRental.Api.Domain.Commons;
+using VacationRental.Api.Domain.Resources;
 using VacationRental.Api.Domain.Rental;
 using Xunit;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
 using VacationRental.Api.Domain.Booking;
-using VacationRental.Api.Domain.Commons;
+using VacationRental.Api.Domain.Resources;
 using VacationRental.Api.Domain.Rental;
 
 namespace VacationRental.Api.Controllers
@@ -13,10 +13,10 @@ namespace VacationRental.Api.Controllers
     public class RentalsController : ControllerBase
     {
         private readonly IDictionary<int, RentalViewDTO> _rentals;
-        private readonly IDictionary<int, BookingViewModel> _bookings;
+        private readonly IDictionary<int, BookingViewDTO> _bookings;
 
 
-        public RentalsController(IDictionary<int, RentalViewDTO> rentals, IDictionary<int, BookingViewModel> bookings)
+        public RentalsController(IDictionary<int, RentalViewDTO> rentals, IDictionary<int, BookingViewDTO> bookings)
         {
             _rentals = rentals;
             _bookings = bookings;

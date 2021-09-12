@@ -1,0 +1,104 @@
+2021-09-12 19:22:25.435 -03:00 [Information] User profile is available. Using '"C:\Users\Aegis\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-12 19:22:25.670 -03:00 [Information] Web api is starting...
+2021-09-12 19:22:26.077 -03:00 [Information] Web Api has started successfully
+2021-09-12 19:22:26.190 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/swagger/index.html  
+2021-09-12 19:22:26.415 -03:00 [Information] Request finished in 225.6511ms 200 text/html
+2021-09-12 19:22:26.606 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/swagger/v1/swagger.json  
+2021-09-12 19:22:26.752 -03:00 [Information] Request finished in 146.1287ms 200 application/json;charset=utf-8
+2021-09-12 19:22:43.214 -03:00 [Information] Request starting HTTP/1.1 POST http://localhost:58783/api/v1/rentals application/json-patch+json 46
+2021-09-12 19:22:43.219 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.RentalsController.Post (VacationRental.Api)"'
+2021-09-12 19:22:43.251 -03:00 [Information] Route matched with "{action = \"Post\", controller = \"Rentals\"}". Executing controller action with signature "VacationRental.Api.Domain.Commons.ResourceIdViewModel Post(VacationRental.Api.Domain.Rental.RentalBindingDTO)" on controller "VacationRental.Api.Controllers.RentalsController" ("VacationRental.Api").
+2021-09-12 19:22:43.406 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.RentalsController.Post (VacationRental.Api)" - Validation state: Valid
+2021-09-12 19:22:43.409 -03:00 [Information] Executed action method "VacationRental.Api.Controllers.RentalsController.Post (VacationRental.Api)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.7179ms.
+2021-09-12 19:22:43.414 -03:00 [Information] Executing ObjectResult, writing value of type '"VacationRental.Api.Domain.Commons.ResourceIdViewModel"'.
+2021-09-12 19:22:43.422 -03:00 [Information] Executed action "VacationRental.Api.Controllers.RentalsController.Post (VacationRental.Api)" in 166.3789ms
+2021-09-12 19:22:43.422 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.RentalsController.Post (VacationRental.Api)"'
+2021-09-12 19:22:43.422 -03:00 [Information] Request finished in 208.0862ms 200 application/json; charset=utf-8
+2021-09-12 19:23:02.240 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/api/v1/calendar?rentalId=1  
+2021-09-12 19:23:02.241 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)"'
+2021-09-12 19:23:02.244 -03:00 [Information] Route matched with "{action = \"Get\", controller = \"Calendar\"}". Executing controller action with signature "VacationRental.Api.Domain.Calendar.CalendarViewModel Get(Int32, System.DateTime, Int32)" on controller "VacationRental.Api.Controllers.CalendarController" ("VacationRental.Api").
+2021-09-12 19:23:02.305 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)" - Validation state: Valid
+2021-09-12 19:23:02.306 -03:00 [Information] Executed action method "VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 1.2619ms.
+2021-09-12 19:23:02.307 -03:00 [Information] Executing ObjectResult, writing value of type '"VacationRental.Api.Domain.Calendar.CalendarViewModel"'.
+2021-09-12 19:23:02.308 -03:00 [Information] Executed action "VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)" in 63.8142ms
+2021-09-12 19:23:02.308 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)"'
+2021-09-12 19:23:02.308 -03:00 [Information] Request finished in 68.4191ms 200 application/json; charset=utf-8
+2021-09-12 19:23:23.144 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/api/v1/bookings/1  
+2021-09-12 19:23:23.144 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 19:23:23.146 -03:00 [Information] Route matched with "{action = \"Get\", controller = \"Bookings\"}". Executing controller action with signature "VacationRental.Api.Domain.Booking.BookingViewModel Get(Int32)" on controller "VacationRental.Api.Controllers.BookingsController" ("VacationRental.Api").
+2021-09-12 19:23:23.179 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" - Validation state: Valid
+2021-09-12 19:23:26.210 -03:00 [Information] Executed action "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" in 3063.211ms
+2021-09-12 19:23:26.210 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 19:23:26.211 -03:00 [Error] An unhandled exception has occurred while executing the request.
+System.ApplicationException: Booking not found
+   at VacationRental.Api.Controllers.BookingsController.Get(Int32 bookingId) in C:\Users\Aegis\Documents\barcelona\public-money-recruitment-be-test\VacationRental.Api\Controllers\BookingsController.cs:line 32
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-12 19:23:26.434 -03:00 [Information] Request finished in 3290.7002ms 500 text/html; charset=utf-8
+2021-09-12 19:24:13.798 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/api/v1/calendar?rentalId=1&start=2021-10-10&nights=2  
+2021-09-12 19:24:13.799 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)"'
+2021-09-12 19:24:13.799 -03:00 [Information] Route matched with "{action = \"Get\", controller = \"Calendar\"}". Executing controller action with signature "VacationRental.Api.Domain.Calendar.CalendarViewModel Get(Int32, System.DateTime, Int32)" on controller "VacationRental.Api.Controllers.CalendarController" ("VacationRental.Api").
+2021-09-12 19:24:13.828 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)" - Validation state: Valid
+2021-09-12 19:24:13.829 -03:00 [Information] Executed action method "VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.462ms.
+2021-09-12 19:24:13.829 -03:00 [Information] Executing ObjectResult, writing value of type '"VacationRental.Api.Domain.Calendar.CalendarViewModel"'.
+2021-09-12 19:24:13.831 -03:00 [Information] Executed action "VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)" in 31.5403ms
+2021-09-12 19:24:13.831 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.CalendarController.Get (VacationRental.Api)"'
+2021-09-12 19:24:13.831 -03:00 [Information] Request finished in 32.5955ms 200 application/json; charset=utf-8
+2021-09-12 19:24:35.156 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/api/v1/bookings/1  
+2021-09-12 19:24:35.156 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 19:24:35.156 -03:00 [Information] Route matched with "{action = \"Get\", controller = \"Bookings\"}". Executing controller action with signature "VacationRental.Api.Domain.Booking.BookingViewModel Get(Int32)" on controller "VacationRental.Api.Controllers.BookingsController" ("VacationRental.Api").
+2021-09-12 19:24:35.180 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" - Validation state: Valid
+2021-09-12 19:24:40.034 -03:00 [Information] Executed action "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" in 4877.3274ms
+2021-09-12 19:24:40.034 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 19:24:40.034 -03:00 [Error] An unhandled exception has occurred while executing the request.
+System.ApplicationException: Booking not found
+   at VacationRental.Api.Controllers.BookingsController.Get(Int32 bookingId) in C:\Users\Aegis\Documents\barcelona\public-money-recruitment-be-test\VacationRental.Api\Controllers\BookingsController.cs:line 32
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-12 19:24:40.053 -03:00 [Information] Request finished in 4897.4654ms 500 text/html; charset=utf-8
+2021-09-12 19:25:18.451 -03:00 [Information] Request starting HTTP/1.1 POST http://localhost:58783/api/v1/bookings application/json-patch+json 73
+2021-09-12 19:25:18.451 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.BookingsController.Post (VacationRental.Api)"'
+2021-09-12 19:25:18.454 -03:00 [Information] Route matched with "{action = \"Post\", controller = \"Bookings\"}". Executing controller action with signature "VacationRental.Api.Domain.Commons.ResourceIdViewModel Post(VacationRental.Api.Domain.Booking.BookingBindingModel)" on controller "VacationRental.Api.Controllers.BookingsController" ("VacationRental.Api").
+2021-09-12 19:25:18.485 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.BookingsController.Post (VacationRental.Api)" - Validation state: Valid
+2021-09-12 19:25:18.486 -03:00 [Information] Executed action method "VacationRental.Api.Controllers.BookingsController.Post (VacationRental.Api)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.8738ms.
+2021-09-12 19:25:18.486 -03:00 [Information] Executing ObjectResult, writing value of type '"VacationRental.Api.Domain.Commons.ResourceIdViewModel"'.
+2021-09-12 19:25:18.486 -03:00 [Information] Executed action "VacationRental.Api.Controllers.BookingsController.Post (VacationRental.Api)" in 32.4511ms
+2021-09-12 19:25:18.486 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.BookingsController.Post (VacationRental.Api)"'
+2021-09-12 19:25:18.486 -03:00 [Information] Request finished in 35.123ms 200 application/json; charset=utf-8
+2021-09-12 19:25:26.270 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/api/v1/bookings/1  
+2021-09-12 19:25:26.272 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 19:25:26.272 -03:00 [Information] Route matched with "{action = \"Get\", controller = \"Bookings\"}". Executing controller action with signature "VacationRental.Api.Domain.Booking.BookingViewModel Get(Int32)" on controller "VacationRental.Api.Controllers.BookingsController" ("VacationRental.Api").
+2021-09-12 19:25:26.311 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" - Validation state: Valid
+2021-09-12 19:25:26.311 -03:00 [Information] Executed action method "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)", returned result "Microsoft.AspNetCore.Mvc.ObjectResult" in 0.033ms.
+2021-09-12 19:25:26.311 -03:00 [Information] Executing ObjectResult, writing value of type '"VacationRental.Api.Domain.Booking.BookingViewModel"'.
+2021-09-12 19:25:26.313 -03:00 [Information] Executed action "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" in 41.5402ms
+2021-09-12 19:25:26.314 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 19:25:26.314 -03:00 [Information] Request finished in 43.6427ms 200 application/json; charset=utf-8
