@@ -63,7 +63,8 @@ namespace VacationRental.Api.Tests
         {
             var postRentalRequest = new RentalBindingDTO
             {
-                Units = 1
+                Units = 1,
+                PreparationTimeInDays = 2
             };
 
             ResourceIdViewModel postRentalResult;
@@ -92,12 +93,7 @@ namespace VacationRental.Api.Tests
                 Start = new DateTime(2002, 01, 02)
             };
 
-            await Assert.ThrowsAsync<ApplicationException>(async () =>
-            {
-                using (var postBooking2Response = await _client.PostAsJsonAsync($"/api/v1/bookings", postBooking2Request))
-                {
-                }
-            });
+            var assert = Assert.ThrowsAsync<ArgumentException>(() => _client.PostAsJsonAsync($"/api/v1/bookings", postBooking2Request));
         }
     }
 }

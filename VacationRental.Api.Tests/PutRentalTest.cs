@@ -9,6 +9,7 @@ using Xunit;
 
 namespace VacationRental.Api.Tests
 {
+    [Collection("Integration")]
     public class PutRentalTest
     {
         private readonly HttpClient _client;
@@ -19,7 +20,7 @@ namespace VacationRental.Api.Tests
         }
 
         [Fact]
-        public async Task GivenCompleteRequest_WhenPutRental_ThenAGetReturnsTheCreatedRental()
+        public async Task GivenCompleteRequest_WhenPutRental_ThenAGetReturnsTheModifiedRental()
         {
             var request = new RentalBindingDTO
             {
