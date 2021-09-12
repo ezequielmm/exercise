@@ -29,36 +29,36 @@ namespace VacationRental.Api.Controllers
             var result = new CalendarViewModel
             {
                 RentalId = rentalId,
-                Dates = new List<CalendarDateViewModel>()
+                Dates = new List<CalendarDateViewDTO>()
             };
             int units = _rentals[rentalId].Units;
 
             for (var i = 0; i < nights; i++)
             {
-                int occupiedUnits = 0;
-                var date = new CalendarDateViewModel
+                int reservedUnits = 0;
+                var date = new CalendarDateViewDTO
                 {
                     Date = start.Date.AddDays(i),
-                    Bookings = new List<CalendarBookingViewModel>()
+                    Bookings = new List<CalendarBookingViewDTO>()
                 };
                 var rentalBooking = _bookings.Values.Where(x => x.RentalId == rentalId).ToList();
 
                 foreach (var booking in rentalBooking)
                 {
-                    DateTime bookingEnd = booking.Start.AddDays(booking.Nights);
-                    DateTime bookingStart = booking.Start;
+                    DateTime bookingEnding = booking.Start.AddDays(booking.Nights);
+                    DateTime bookingStarting = booking.Start;
 
-                    if (bookingStart <= date.Date && bookingEnd >= date.Date)
+                    if (bookingStarting <= date.Date && bookingEnding >= date.Date)
                     {
-                        occupiedUnits += 1;
-                        date.Bookings.Add(new CalendarBookingViewModel
+                        reservedUnits += 1;
+                        date.Bookings.Add(new CalendarBookingViewDTO
                         {
                             Id = booking.Id,
                             Nights = booking.Nights
                         });
                     }
                 }
-                date.Unit = units - occupiedUnits;
+                date.Unit = units - reservedUnits;
                 result.Dates.Add(date);
             }
             result.PreparationTimeInDays = _rentals[rentalId].PreparationTimeInDays;

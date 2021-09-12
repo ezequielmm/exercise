@@ -1,6 +1,6 @@
 ﻿namespace VacationRental.Api.Domain.Calendar
 {
-    public class CalendarBookingViewModel
+    public class CalendarBookingViewDTO
     {
         public int Id { get; set; }
         public int Nights { get; set; }

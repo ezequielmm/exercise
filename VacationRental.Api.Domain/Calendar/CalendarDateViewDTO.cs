@@ -3,10 +3,10 @@ using System.Collections.Generic;
 
 namespace VacationRental.Api.Domain.Calendar
 {
-    public class CalendarDateViewModel
+    public class CalendarDateViewDTO
     {
         public DateTime Date { get; set; }
-        public List<CalendarBookingViewModel> Bookings { get; set; }
+        public List<CalendarBookingViewDTO> Bookings { get; set; }
         public int Unit { get; set; }
 
     }
