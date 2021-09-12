@@ -23,7 +23,8 @@ namespace VacationRental.Api.Tests
         {
             var postRentalRequest = new RentalBindingDTO
             {
-                Units = 4
+                Units = 4,
+                PreparationTimeInDays = 5
             };
 
             ResourceIdViewModel postRentalResult;

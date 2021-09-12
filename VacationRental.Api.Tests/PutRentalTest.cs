@@ -24,14 +24,22 @@ namespace VacationRental.Api.Tests
         {
             var request = new RentalBindingDTO
             {
-                Units = 25
+                Units = 25,
+                PreparationTimeInDays = 6
             };
 
-            ResourceIdViewModel putResult;
+            ResourceIdViewModel postResult;
             using (var postResponse = await _client.PostAsJsonAsync($"/api/v1/rentals", request))
             {
                 Assert.True(postResponse.IsSuccessStatusCode);
-                putResult = await postResponse.Content.ReadAsAsync<ResourceIdViewModel>();
+                postResult = await postResponse.Content.ReadAsAsync<ResourceIdViewModel>();
+            }
+
+            ResourceIdViewModel putResult;
+            using (var putResponse = await _client.PutAsJsonAsync($"/api/v1/rentals/{postResult.Id}", request))
+            {
+                Assert.True(putResponse.IsSuccessStatusCode);
+                putResult = await putResponse.Content.ReadAsAsync<ResourceIdViewModel>();
             }
 
             using (var getResponse = await _client.GetAsync($"/api/v1/rentals/{putResult.Id}"))
