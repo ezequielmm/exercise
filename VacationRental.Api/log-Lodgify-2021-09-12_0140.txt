@@ -1,0 +1,34 @@
+2021-09-12 01:40:15.771 -03:00 [Information] User profile is available. Using '"C:\Users\Aegis\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2021-09-12 01:40:15.905 -03:00 [Information] Web api is starting...
+2021-09-12 01:40:16.269 -03:00 [Information] Web Api has started successfully
+2021-09-12 01:40:16.434 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/swagger/index.html  
+2021-09-12 01:40:16.653 -03:00 [Information] Request finished in 223.7242ms 200 text/html
+2021-09-12 01:40:17.060 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/swagger/v1/swagger.json  
+2021-09-12 01:40:17.249 -03:00 [Information] Request finished in 188.3569ms 200 application/json;charset=utf-8
+2021-09-12 01:40:24.831 -03:00 [Information] Request starting HTTP/1.1 GET http://localhost:58783/api/v1/bookings/2  
+2021-09-12 01:40:24.838 -03:00 [Information] Executing endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 01:40:24.875 -03:00 [Information] Route matched with "{action = \"Get\", controller = \"Bookings\"}". Executing controller action with signature "VacationRental.Api.Domain.Booking.BookingViewDTO Get(Int32)" on controller "VacationRental.Api.Controllers.BookingsController" ("VacationRental.Api").
+2021-09-12 01:40:25.008 -03:00 [Information] Executing action method "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" - Validation state: Valid
+2021-09-12 01:40:25.008 -03:00 [Error] Booking not found
+2021-09-12 01:40:27.076 -03:00 [Information] Executed action "VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)" in 2197.869ms
+2021-09-12 01:40:27.076 -03:00 [Information] Executed endpoint '"VacationRental.Api.Controllers.BookingsController.Get (VacationRental.Api)"'
+2021-09-12 01:40:27.077 -03:00 [Error] An unhandled exception has occurred while executing the request.
+System.ApplicationException: Booking not found
+   at VacationRental.Api.Controllers.BookingsController.Get(Int32 bookingId) in C:\Users\Aegis\Documents\barcelona\public-money-recruitment-be-test\VacationRental.Api\Controllers\BookingsController.cs:line 39
+   at lambda_method(Closure , Object , Object[] )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(Object target, Object[] parameters)
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.SyncObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Routing.EndpointRoutingMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2021-09-12 01:40:27.210 -03:00 [Information] Request finished in 2378.7755ms 500 text/html; charset=utf-8

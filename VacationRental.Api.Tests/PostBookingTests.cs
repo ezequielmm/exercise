@@ -1,8 +1,9 @@
 ﻿using System;
-using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
-using VacationRental.Api.Models;
+using VacationRental.Api.Domain.Booking;
+using VacationRental.Api.Domain.Commons;
+using VacationRental.Api.Domain.Rental;
 using Xunit;
 
 namespace VacationRental.Api.Tests
@@ -20,7 +21,7 @@ namespace VacationRental.Api.Tests
         [Fact]
         public async Task GivenCompleteRequest_WhenPostBooking_ThenAGetReturnsTheCreatedBooking()
         {
-            var postRentalRequest = new RentalBindingModel
+            var postRentalRequest = new RentalBindingDTO
             {
                 Units = 4
             };
@@ -60,7 +61,7 @@ namespace VacationRental.Api.Tests
         [Fact]
         public async Task GivenCompleteRequest_WhenPostBooking_ThenAPostReturnsErrorWhenThereIsOverbooking()
         {
-            var postRentalRequest = new RentalBindingModel
+            var postRentalRequest = new RentalBindingDTO
             {
                 Units = 1
             };
